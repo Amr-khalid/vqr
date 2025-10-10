@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import ScanRecord from "./models/ScanRecord.js";
+import ScanRecord from "./api/models/ScanRecord.js";
 dotenv.config();
 
 const app = express();
@@ -14,12 +14,12 @@ mongoose
   .then(() => console.log("✅ Mongo connected"))
   .catch((e) => console.error("❌ Mongo error:", e));
 
-import qrRoutes from "./routes/qr.js";
-import scanRoutes from "./routes/scan.js";
-import exportRoutes from "./routes/export.js";
-import userRoutes from "./routes/users.js"; // ✅ استخدمه كـ router
-import userSchema from "./models/userSchema.js";
-import scanExcelRouter from "./routes/scanExcel.js";
+import qrRoutes from "./api/routes/qr.js";
+import scanRoutes from "./api/routes/scan.js";
+import exportRoutes from "./api/routes/export.js";
+import userRoutes from "./api/routes/users.js"; // ✅ استخدمه كـ router
+import userSchema from "./api/models/userSchema.js";
+import scanExcelRouter from "./api/routes/scanExcel.js";
 
 app.use("/api/qr", qrRoutes);
 app.use("/api/scan", scanRoutes);
