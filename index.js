@@ -10,7 +10,10 @@ app.use(cors());
 app.use(express.json({ limit: "1mb" }));
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(
+    process.env.MONGO_URI ||
+      "mongodb+srv://node:1234@learnnode.tca96.mongodb.net/qrcode"
+  )
   .then(() => console.log("✅ Mongo connected"))
   .catch((e) => console.error("❌ Mongo error:", e));
 
