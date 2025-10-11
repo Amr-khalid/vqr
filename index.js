@@ -89,7 +89,9 @@ app.post("/upload", upload.single("excelFile"), (req, res) => {
     res.status(500).send("حدث خطأ في الخادم.");
   }
 });
-
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+})
 // The local server start is commented out, which is correct for Vercel.
 // const PORT = Number(process.env.PORT || 5000);
 // app.listen(PORT, () => console.log(`🚀 Backend running on port ${PORT}`));
