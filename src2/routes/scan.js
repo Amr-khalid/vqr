@@ -1,4 +1,3 @@
-// backend/src/routes/scan.js
 import { Router } from "express";
 import ScanRecord from "../models/ScanRecord.js";
 import { verifyPayload } from "../utils/hmac.js";

@@ -1,4 +1,4 @@
-// backend/src/utils/hmac.js
+// backend/src/utils/hmac.ts
 import crypto from "crypto";
 
 export function signPayload(payloadString, secret) {

@@ -1,4 +1,4 @@
-// models/Student.js
+// models/Student.ts
 import { Schema, model } from "mongoose";
 const StudentSchema = new Schema({
   studentId: { type: String, required: true, unique: true },

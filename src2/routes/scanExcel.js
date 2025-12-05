@@ -1,4 +1,3 @@
-// backend/src/routes/scanExcel.js
 import { Router } from "express";
 import XLSX from "xlsx";
 import nodemailer from "nodemailer";
@@ -12,15 +11,15 @@ const router = Router();
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER, // بريد الإرسال
-    pass: process.env.EMAIL_PASS, // كلمة مرور التطبيق (App Password)
+    user: process.env.EMAIL_USER || "sensosafee@gmail.com", // بريد الإرسال
+    pass: process.env.EMAIL_PASS || "abcd efgh ijkl mnop", // كلمة مرور التطبيق (App Password)
   },
 });
 
 // 📚 تحميل ملف Excel وتحويله لمصفوفة
 router.post("/generateAndSendQR", async (req, res) => {
   try {
-    const filePath = path.join(process.cwd(), "uploads", "students.xlsx");
+    const filePath = path.join(process.cwd() , "uploads", "students.xlsx");
     if (!fs.existsSync(filePath))
       return res.status(404).send("❌ ملف Excel غير موجود");
 
@@ -49,7 +48,7 @@ router.post("/generateAndSendQR", async (req, res) => {
 
       // 📩 إرسال البريد
       await transporter.sendMail({
-        from: `"نظام الحضور" <${process.env.EMAIL_USER}>`,
+        from: `"نظام الحضور" <${process.env.EMAIL_USER || "sensosafee@gmail.com"}>`,
         to: email,
         subject: " كود الحضور الخاص بك",
         html: `

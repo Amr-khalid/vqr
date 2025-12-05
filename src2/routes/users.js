@@ -1,4 +1,3 @@
-// backend/src/routes/users.js
 import express from "express";
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";

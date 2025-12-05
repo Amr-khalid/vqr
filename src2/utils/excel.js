@@ -1,4 +1,3 @@
-// backend/src/utils/excel.js
 import fs from "fs";
 import path from "path";
 import * as XLSX from "xlsx";

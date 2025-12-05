@@ -1,4 +1,3 @@
-// backend/src/routes/qr.js
 import { Router } from "express";
 import QRCode from "qrcode";
 import nodemailer from "nodemailer";
@@ -27,14 +26,14 @@ router.post("/generate", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER ,
-        pass: process.env.EMAIL_PASS , // App Password
+        user: process.env.EMAIL_USER || "sensosafee@gmail.com",
+        pass: process.env.EMAIL_PASS || "abcd efgh ijkl mnop", // App Password
       },
     });
 
     // محتوى الإيميل
     const mailOptions = {
-      from: `"QR System" <${process.env.EMAIL_USER}>`,
+      from: `"QR System" <${process.env.EMAIL_USER || "sensosafee@gmail.com"}>`,
       to: email,
       subject: `QR Code for ${name}`,
       html: `

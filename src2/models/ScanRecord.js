@@ -1,4 +1,3 @@
-// backend/src/models/ScanRecord.js
 import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 const ScanRecordSchema = new Schema({

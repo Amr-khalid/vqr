@@ -1,4 +1,3 @@
-// backend/src/models/userSchema.js
 import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 

@@ -1,10 +1,10 @@
 // backend/src/index.js
-import networkRoutes from "./src/routes/network.js"
+import networkRoutes from "./routes/network.js"
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import ScanRecord from "./src/models/ScanRecord.js";
+import ScanRecord from "./models/ScanRecord.js";
 dotenv.config();
 
 const app = express();
@@ -16,12 +16,12 @@ mongoose
   .then(() => console.log("✅ Mongo connected"))
   .catch((e) => console.error("❌ Mongo error:", e));
 
-import qrRoutes from "./src/routes/qr.js";
-import scanRoutes from "./src/routes/scan.js";
-import exportRoutes from "./src/routes/export.js";
-import userRoutes from "./src/routes/users.js"; // ✅ استخدمه كـ router
-import userSchema from "./src/models/userSchema.js";
-import scanExcelRouter from "./src/routes/scanExcel.js";
+import qrRoutes from "./routes/qr.js";
+import scanRoutes from "./routes/scan.js";
+import exportRoutes from "./routes/export.js";
+import userRoutes from "./routes/users.js"; // ✅ استخدمه كـ router
+import userSchema from "./models/userSchema.js";
+import scanExcelRouter from "./routes/scanExcel.js";
 
 app.use("/api/qr", qrRoutes);
 app.use("/api/scan", scanRoutes);
@@ -134,9 +134,7 @@ app.post("/upload", upload.single("excelFile"), (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+
 
 
 
